@@ -3,6 +3,7 @@ deployment:
   tasks:
     - npm install
     - npm run build
-    - export DEPLOY_PATH=/home/svipsac/public_html/repository
+    - export BUILD_PATH=$HOME/public_html/repository/build
+    - export DEPLOY_PATH=$HOME/public_html
     - /bin/rm -rf $DEPLOY_PATH/*
-    - /bin/cp -R build/* $DEPLOY_PATH
+    - /bin/cp -R $BUILD_PATH/* $DEPLOY_PATH
