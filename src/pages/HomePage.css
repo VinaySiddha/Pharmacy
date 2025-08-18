@@ -1,0 +1,316 @@
+.animate-scroll {
+  animation: scroll 30s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%); /* Start from the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left side */
+  }
+}
+
+.logo-container {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for a shine effect */
+  width: 120px; /* Fixed width for logos */
+  height: 100px; /* Fixed height for logos */
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
+
+.logo-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(163, 13, 13, 0) 0%, rgba(10, 59, 174, 0.3) 100%);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.animate-scroll-news {
+  animation: scrollNews 20s linear infinite; /* Adjust duration as needed */
+  white-space: normal; /* Prevent horizontal scrolling */
+  overflow: visible;
+}
+
+@keyframes scrollNews {
+  0% {
+    transform: translateX(0); /* Start from the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left side */
+  }
+}
+
+.news-item {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  animation: flash 3s linear infinite; /* Add flash animation */
+}
+
+.news-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.news-item .bg-white {
+  transition: background-color 0.3s ease;
+}
+
+.news-item:hover .bg-white {
+  background-color: #d0e9ff; /* Subtle light blue background color change on hover */
+}
+
+.news-item.active {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+@keyframes flash {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.7); /* More visible blue shadow */
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.9); /* More intense blue shadow */
+    transform: scale(1.03); /* Slight scale up for emphasis */
+  }
+}
+
+.company-logos-container {
+  display: flex;
+  animation: scroll 10s linear infinite; /* Reduce duration for faster scrolling */
+}
+
+/* Floating button hover effect */
+.fixed button:hover {
+  transform: scale(1.1);
+}
+
+/* Chatbot popup scrollable area */
+.fixed .overflow-y-auto {
+  max-height: calc(100% - 120px);
+}
+
+/* Ensure the chatbot button is above other elements */
+.fixed {
+  z-index: 1000; /* Higher z-index to ensure it's above other elements */
+  margin-right: 1rem; /* Adjust spacing from the right */
+}
+
+/* Add spacing to avoid overlap with other elements */
+.fixed.bottom-6 {
+  margin-right: 1rem; /* Adjust spacing from the right */
+  margin-bottom: 1rem; /* Adjust spacing from the bottom */
+}
+
+/* Chatbot button */
+.fixed.bottom-6.right-6 {
+  z-index: 1000; /* Ensure it's on top */
+}
+
+/* Navigate Up button */
+.fixed.bottom-20.right-6 {
+  z-index: 900; /* Ensure it's below the chatbot button */
+}
+
+/* Ensure arrow icons and other elements have a lower z-index */
+.arrow-icon {
+  z-index: 500; /* Lower z-index than the chatbot button */
+}
+
+/* WhatsApp Button */
+.fixed.bottom-14.right-6.whatsapp-icon {
+  z-index: 1000; /* Ensure it's on top */
+  position: fixed;
+  bottom: 4.5rem; /* Position under the chatbot icon */
+  right: 1.5rem; /* Align with the chatbot icon */
+  background-color: #25d366; /* WhatsApp green color */
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.fixed.bottom-14.right-6.whatsapp-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+}
+
+/* WhatsApp Icon Animation */
+.fixed.bottom-14.right-6.whatsapp-icon.animate-fly-fall {
+  animation: fly-fall 1.5s ease-in-out forwards;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scrollMobile 5s linear infinite; /* Adjust logo scroll speed for mobile */
+  }
+
+  @keyframes scrollMobile {
+    0% {
+      transform: translateX(100%); /* Start from the right side */
+    }
+    100% {
+      transform: translateX(-100%); /* Move to the left side */
+    }
+  }
+
+  .animate-scroll-news {
+    animation: scrollNewsMobile 10s linear infinite; /* Adjust news scroll speed for mobile */
+  }
+
+  @keyframes scrollNewsMobile {
+    0% {
+      transform: translateX(0); /* Start from the right side */
+    }
+    100% {
+      transform: translateX(-100%); /* Move to the left side */
+    }
+  }
+
+  .news-item {
+    width: 80vw; /* Adjust news item width for mobile */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .logo-container {
+    width: 80px; /* Adjust logo width for mobile */
+    height: 80px; /* Adjust logo height for mobile */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .logo-container img {
+    max-height: 60px; /* Adjust logo image max-height for mobile */
+  }
+
+  .company-logos-container {
+    width: calc(200%); /* Ensure the container width accommodates all logos */
+    animation: scroll 10s linear infinite; /* Ensure consistent animation for mobile */
+  }
+}
+
+@keyframes fly-fall {
+  0% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(20px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fly-fall {
+  animation: fly-fall 1.5s ease-in-out forwards;
+}
+
+/* Ensure no container overflows */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  max-width: 100%;
+  overflow: hidden; /* Prevent individual scrollbars */
+}
+
+section {
+  overflow: visible; /* Ensure sections don't create scrollbars */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  max-width: 100%; /* Ensure containers don't exceed the viewport width */
+  overflow-x: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ensure headings are not cut off */
+#about h2 {
+  margin-top: 0;
+  padding-top: 1rem; /* Add padding to prevent cutting */
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Prevent overlapping */
+#about {
+  position: relative;
+  overflow: visible;
+}
+
+
+
+/*  */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

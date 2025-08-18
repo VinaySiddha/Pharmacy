@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1e40af;
+  --primary-light: #3b82f6;
+  --primary-dark: #1e3a8a;
+  --secondary: #f3f4f6;
+  --accent: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* body {
+  font-family: 'Inter', sans-serif;
+} */
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center;
+  }
+
+  .btn-outline {
+    @apply border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 max-w-3xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .icon-circle {
+    @apply bg-blue-100 rounded-full p-2 text-blue-600;
+  }
+}
+
+/* Custom animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* Navbar glass effect */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Image hover effects */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet-active {
+  background-color: #1e40af !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1e40af !important;
+}
+
+.facility-images-slider {
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    &::after {
+      font-size: 20px;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.7;
+  }
+
+  :is(.swiper-pagination-bullet-active) {
+    opacity: 1;
+  }
+
+}
+
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('/public/uploads/fonts/ProductSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Product Sans', Arial, sans-serif;
+  font-size: 18px;
+  /* Increase the font size here */
+  line-height: 1.6;
+  /* Optional: Adjust line height for better readability */
+}
+
+h1 {
+  font-size: 2.5rem;
+  /* Example: 40px */
+}
+
+h2 {
+  font-size: 2rem;
+  /* Example: 32px */
+}
+
+p {
+  font-size: 1.125rem;
+  /* Example: 18px */
+}

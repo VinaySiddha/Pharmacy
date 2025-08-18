@@ -1,0 +1,119 @@
+/* WhatsApp Button */
+.whatsapp-icon {
+  z-index: 1000;
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1.5rem; /* Default position on right */
+  background-color: #25d366;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Left side WhatsApp icon */
+.whatsapp-icon.left {
+  left: 1.5rem;
+  right: auto;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for both icons */
+@keyframes fly-fall {
+  0% {
+    transform: translate(0, -100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.whatsapp-icon.animate-fly-fall {
+  animation: fly-fall 1.5s ease-in-out forwards;
+}
+
+
+.whatsapp-chat-popup {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-text {
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-messages {
+  padding: 15px;
+  background: #E8E8E8;
+  min-height: 150px;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.message.bot {
+  background: white;
+  margin-right: auto;
+}
+
+.message.user {
+  background: #DCF8C6;
+  margin-left: auto;
+}
+
+.start-chat-button {
+  width: 100%;
+  padding: 15px;
+  background: #25D366;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.start-chat-button:hover {
+  background: #128C7E;
+}
+
+/* Existing WhatsApp icon styles remain the same */

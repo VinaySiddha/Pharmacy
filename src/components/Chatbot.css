@@ -1,0 +1,30 @@
+/* Fly-Fall Animation */
+@keyframes fly-fall {
+  0% {
+    transform: translateY(-100vh); /* Start from above the viewport */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Ease-In-Out Fly-Fall Animation */
+@keyframes ease-fly-fall {
+  0% {
+    transform: translateY(-100vh); /* Start from above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    transform: translateY(20px); /* Slight bounce effect */
+    opacity: 1; /* Fade in */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Apply the animation to the chatbot icon */
+.chatbot-icon.fly-fall {
+  animation: ease-fly-fall 1.2s ease-in-out alternate; /* 1.2-second animation */
+}
