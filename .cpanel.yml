@@ -1,9 +1,20 @@
 ---
 deployment:
   tasks:
-    - npm install
-    - npm run build
-    - export BUILD_PATH=$HOME/public_html/repository/build
+    # Set paths
+    - export REPO_PATH=$HOME/public_html/repository
+    - export APP_PATH=$REPO_PATH
+    - export BUILD_PATH=$APP_PATH/build
     - export DEPLOY_PATH=$HOME/public_html
+    # Move into repo
+    - cd $APP_PATH
+    # Install dependencies (Node 18 path in GoDaddy cPanel)
+    - /opt/cpanel/ea-nodejs18/bin/npm install
+    # Build React app
+    - /opt/cpanel/ea-nodejs18/bin/npm run build
+    # Clear public_html (CAUTION: this deletes all files in public_html!)
     - /bin/rm -rf $DEPLOY_PATH/*
+    # Copy build output to public_html
     - /bin/cp -R $BUILD_PATH/* $DEPLOY_PATH
+    # Copy .htaccess if needed
+    - /bin/cp $APP_PATH/public/.htaccess $DEPLOY_PATH/.htaccess || true
